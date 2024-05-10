@@ -20,7 +20,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	if request.Headers["secret"] != "" {
 		secret = request.Headers["secret"]
 	} else if request.Headers["Secret"] != "" {
-		secret = request.Headers["secret"]
+		secret = request.Headers["Secret"]
 	}
 	fmt.Println(secret)
 	fmt.Println("diatas secretnya cuk")
