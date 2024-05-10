@@ -2,7 +2,10 @@ module gocroot
 
 go 1.22.3
 
-require go.mongodb.org/mongo-driver v1.15.0
+require (
+	github.com/aws/aws-lambda-go v1.47.0
+	go.mongodb.org/mongo-driver v1.15.0
+)
 
 require (
 	github.com/golang/snappy v0.0.1 // indirect
