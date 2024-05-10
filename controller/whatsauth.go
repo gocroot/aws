@@ -16,13 +16,16 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		fmt.Printf("    %s: %s\n", key, value)
 	}
 	fmt.Println("apakah ada secret?")
-	var secret string
-	if request.Headers["secret"] != "" {
-		secret = request.Headers["secret"]
-	} else if request.Headers["Secret"] != "" {
-		secret = request.Headers["Secret"]
-	}
-	fmt.Println(secret)
+	fmt.Println(GetSecretFromHeader(request.Headers))
 	fmt.Println("diatas secretnya cuk")
 	return events.APIGatewayProxyResponse{Body: request.Body, StatusCode: 200}, nil
+}
+
+func GetSecretFromHeader(headers map[string]string) (secret string) {
+	if headers["secret"] != "" {
+		secret = headers["secret"]
+	} else if headers["Secret"] != "" {
+		secret = headers["Secret"]
+	}
+	return
 }
