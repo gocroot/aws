@@ -16,14 +16,13 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		fmt.Printf("    %s: %s\n", key, value)
 	}
 	fmt.Println("apakah ada secret?")
-	fmt.Println(request.Headers["secret"])
-	key1 := "secret"
-	key2 := "Secret"
-	if value, exists := request.Headers[key1]; exists {
-		fmt.Printf("Key '%s' found with value '%s'\n", key1, value)
-	} else if value, exists := request.Headers[key2]; exists {
-		fmt.Printf("Key '%s' found with value '%s'\n", key1, value)
+	var secret string
+	if request.Headers["secret"] != "" {
+		secret = request.Headers["secret"]
+	} else if request.Headers["Secret"] != "" {
+		secret = request.Headers["secret"]
 	}
-
+	fmt.Println(secret)
+	fmt.Println("diatas secretnya cuk")
 	return events.APIGatewayProxyResponse{Body: request.Body, StatusCode: 200}, nil
 }
