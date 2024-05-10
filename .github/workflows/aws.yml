@@ -19,11 +19,10 @@ jobs:
         run: |
           go get .
           go env -w CGO_ENABLED=0
-          go build -o gocroot
-          chmod a+x gocroot
+          go build -o main
       - name: Zip
         #working-directory: ./lambda/${{ secrets.AWS_FUNCTION_NAME }}
-        run: zip -j deploy.zip gocroot
+        run: zip -j deploy.zip main
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
