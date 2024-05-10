@@ -15,7 +15,7 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	for key, value := range request.Headers {
 		fmt.Printf("    %s: %s\n", key, value)
 	}
-	key := "secret"
+	key := "Secret"
 	if value, exists := request.Headers[key]; exists {
 		fmt.Printf("Key '%s' found with value '%s'\n", key, value)
 	} else {
