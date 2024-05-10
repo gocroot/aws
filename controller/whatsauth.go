@@ -1,40 +1,20 @@
 package controller
 
 import (
-	"gocroot/config"
-	"gocroot/helper"
-	"gocroot/model"
-	"gocroot/pkg"
+	"context"
+	"fmt"
 
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
+	"github.com/aws/aws-lambda-go/events"
 )
 
-func WhatsAuthReceiver(msg model.IteungMessage) (resp model.Response) {
-	if pkg.IsLoginRequest(msg, config.WAKeyword) { //untuk whatsauth request login
-		resp = pkg.HandlerQRLogin(msg, config.WAKeyword)
-	} else { //untuk membalas pesan masuk
-		resp = pkg.HandlerIncomingMessage(msg)
-	}
-	return
-}
+func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	fmt.Printf("Processing request data for request %s.\n", request.RequestContext.RequestID)
+	fmt.Printf("Body size = %d.\n", len(request.Body))
 
-func RefreshWAToken() (res *mongo.UpdateResult, err error) {
-	dt := &model.WebHook{
-		URL:    config.WebhookURL,
-		Secret: config.WebhookSecret,
+	fmt.Println("Headers:")
+	for key, value := range request.Headers {
+		fmt.Printf("    %s: %s\n", key, value)
 	}
-	resp, err := helper.PostStructWithToken[model.User]("Token", pkg.WAAPIToken(config.WAPhoneNumber), dt, config.WAAPIGetToken)
-	if err != nil {
-		return
-	}
-	profile := &model.Profile{
-		Phonenumber: resp.PhoneNumber,
-		Token:       resp.Token,
-	}
-	res, err = helper.ReplaceOneDoc(config.Mongoconn, "profile", bson.M{"phonenumber": resp.PhoneNumber}, profile)
-	if err != nil {
-		return
-	}
-	return
+
+	return events.APIGatewayProxyResponse{Body: request.Body, StatusCode: 200}, nil
 }

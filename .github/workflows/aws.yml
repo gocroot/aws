@@ -19,11 +19,11 @@ jobs:
         run: |
           go get .
           go env -w CGO_ENABLED=0
-          go build -o bootstrap -tags lambda.norpc main.go
-          chmod a+x bootstrap
+          go build -o gocroot -tags lambda.norpc main.go
+          chmod a+x gocroot
       - name: Zip
         #working-directory: ./lambda/${{ secrets.AWS_FUNCTION_NAME }}
-        run: zip -j ${{ secrets.AWS_FUNCTION_NAME }}.zip bootstrap
+        run: zip -j ${{ secrets.AWS_FUNCTION_NAME }}.zip gocroot
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
