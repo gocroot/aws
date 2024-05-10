@@ -1,2 +1,2 @@
 # aws
-AWS golang deployment
+AWS golang deployment serverless
