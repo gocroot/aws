@@ -15,17 +15,20 @@ jobs:
         with:
           go-version: '1.22.x'
       - name: Build
-        working-directory: ./lambda/<function-name>
-        run: CGO_ENABLED=0 go build -v main.go
+        working-directory: ./lambda/${{ secrets.AWS_FUNCTION_NAME }}
+        run: |
+          go env -w CGO_ENABLED=0
+          go build -o gocroot
+          chmod a+x gocroot
       - name: Zip
-        working-directory: ./lambda/<function-name>
-        run: zip -j deploy.zip main
+        working-directory: ./lambda/${{ secrets.AWS_FUNCTION_NAME }}
+        run: zip -j deploy.zip gocroot
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-central-1
+          aws-region: ${{ secrets.AWS_REGION }}
       - name: Upload Zip
-        working-directory: ./lambda/<function-name>
-        run: aws lambda update-function-code --function-name <function-name> --zip-file fileb://deploy.zip
+        working-directory: ./lambda/${{ secrets.AWS_FUNCTION_NAME }}
+        run: aws lambda update-function-code --function-name ${{ secrets.AWS_FUNCTION_NAME }} --zip-file fileb://deploy.zip
