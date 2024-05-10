@@ -32,4 +32,4 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Upload Zip
         #working-directory: ./lambda/${{ secrets.AWS_FUNCTION_NAME }}
-        run: aws lambda update-function-code --function-name ${{ secrets.AWS_FUNCTION_NAME }} --zip-file fileb://deploy.zip
+        run: aws lambda update-function-code --function-name ${{ secrets.AWS_FUNCTION_NAME }} --zip-file fileb://${{ secrets.AWS_FUNCTION_NAME }}.zip --handler bootstrap --runtime provided.al2023
