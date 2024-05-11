@@ -16,9 +16,7 @@ The first thing to do is prepare a Mongo database using this template:
    ![image](https://github.com/gocroot/alwaysdata/assets/11188109/fd785700-7347-4f4b-b3b9-34816fc7bc53)  
    ![image](https://github.com/gocroot/alwaysdata/assets/11188109/ef236b4d-f8f9-42c6-91ff-f6a7d83be4fc)  
 
-## Go Boilerplate Folder Structure
-
-![image](https://github.com/gocroot/alwaysdata/assets/11188109/aa3a8162-3aa9-4a55-be6c-2e0caf5dcfef)  
+## Folder Structure
 
 This boilerplate has several folders with different functions, such as:
 * .github: GitHub Action yml configuration.
@@ -32,11 +30,12 @@ This boilerplate has several folders with different functions, such as:
 ![image](https://github.com/gocroot/alwaysdata/assets/11188109/3ba8a59a-61a3-4018-9aef-40e35ade12b1)  
 
 Sign Up and login into aws console and go to AWS Lambda menu and follow this instruction:
-1. Klik Create Function
-   ![image](https://github.com/gocroot/alwaysdata/assets/11188109/a95bce70-f0fc-4a74-abfa-51ba3dd543d4)
-2. In the Configuration section edit command and Environment
-   ![image](https://github.com/gocroot/alwaysdata/assets/11188109/d88f8fe6-08a3-4efe-9705-3ad5016b80ee)  
-   Please set the environment variable in your system:
+1. Klik Create Function and input Function name, select Amazon Linux 2023 Runtime, select x86_64 Architecture  
+   ![image](https://github.com/gocroot/aws/assets/11188109/d1728555-88ff-41e5-8b05-766e004c0c43)  
+2. In Advanced settings select Enable function URL, None Aut type.
+   ![image](https://github.com/gocroot/aws/assets/11188109/c600eaee-a60c-4166-b99e-da6a5b8e2fc4)  
+3. Please set the environment variable in Configuration tab:  
+   ![image](https://github.com/gocroot/aws/assets/11188109/f9a1e747-ab19-4498-9fe7-b7b043473a65)  
    ```sh
    MONGOSTRING=YOURMONGOSTRINGACCESS
    WAQRKEYWORD=yourkeyword
@@ -44,10 +43,9 @@ Sign Up and login into aws console and go to AWS Lambda menu and follow this ins
    WEBHOOKSECRET=yoursecret
    WAPHONENUMBER=62811111
    ```
-   In this menu, you will see an APPID in the title, shown as a number and a home folder used in the github secrets variable.
-3. Go to menu REmote Access>SSH>Modify, set a very strong password and tick enable password-based login
-4. Set APIKEY in Customer Area>Profile >Managing Tokens>Generate a token
-5. Add sshhost, sshusername, sshpassword, sshport, apikey, appid and folder in your GitHub secret>action variable
+4. Go to menu REmote Access>SSH>Modify, set a very strong password and tick enable password-based login
+5. Set APIKEY in Customer Area>Profile >Managing Tokens>Generate a token
+6. Add sshhost, sshusername, sshpassword, sshport, apikey, appid and folder in your GitHub secret>action variable
    ![image](https://github.com/gocroot/alwaysdata/assets/11188109/5cc1e831-49d5-47d1-9486-d6f0f748a963)  
 
 
