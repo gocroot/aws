@@ -17,11 +17,7 @@ func WebHook(WAKeyword, WAPhoneNumber, WAAPIQRLogin, WAAPIMessage string, msg mo
 	return
 }
 
-func RefreshToken(WebhookURL, WebhookSecret, WAPhoneNumber, WAAPIGetToken string, db *mongo.Database) (res *mongo.UpdateResult, err error) {
-	dt := &model.WebHook{
-		URL:    WebhookURL,
-		Secret: WebhookSecret,
-	}
+func RefreshToken(dt *model.WebHook, WAPhoneNumber, WAAPIGetToken string, db *mongo.Database) (res *mongo.UpdateResult, err error) {
 	resp, err := PostStructWithToken[model.User]("Token", WAAPIToken(WAPhoneNumber, db), dt, WAAPIGetToken)
 	if err != nil {
 		return
