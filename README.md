@@ -41,18 +41,19 @@ Sign Up and login into aws console and go to AWS Lambda menu and follow this ins
    WEBHOOKSECRET=yoursecret
    WAPHONENUMBER=62811111
    ```
-4. Go to menu REmote Access>SSH>Modify, set a very strong password and tick enable password-based login
-5. Set APIKEY in Customer Area>Profile >Managing Tokens>Generate a token
-6. Add sshhost, sshusername, sshpassword, sshport, apikey, appid and folder in your GitHub secret>action variable
-   ![image](https://github.com/gocroot/alwaysdata/assets/11188109/5cc1e831-49d5-47d1-9486-d6f0f748a963)  
-
+4. Go to the menu Identity and Access Management (IAM), set lambda:UpdateFunctionCode Policies, and add to new users.  
+   ![image](https://github.com/gocroot/aws/assets/11188109/2d489702-2aec-460b-9fe4-c319d8a6e018)  
+5. Create an access key from the Security credentials tab.  
+   ![image](https://github.com/gocroot/aws/assets/11188109/e24f5de5-d46d-435d-b9a6-4c2e452cc914)  
+6. Go to settings>Secrets and variables>Actions in the GitHub repo. Add several Repository secrets.  
+   ![image](https://github.com/gocroot/aws/assets/11188109/8e4e9c68-2beb-403f-a669-ff83b1ac04c3)  
 
 ## WhatsAuth Signup
 
 1. Go to the [WhatsAuth signup page](https://wa.my.id/) and scan with your WhatsApp camera menu for login. 
 2. Input the webhook URL(https://yourappname.alwaysdata.net/whatsauth/webhook) and your secret from the WEBHOOKSECRET setting environment on Always Data.  
    ![image](https://github.com/gocroot/alwaysdata/assets/11188109/e0b5cb9d-e9b3-4d04-bbd5-b03bd12293da)  
-3. Follow [this instruction](https://whatsauth.my.id/docs/), in the end of instruction you will get 30 days token using [this request](https://wa.my.id/apidocs/#/signup/signUpNewUser)
+3. Follow [this instruction](https://whatsauth.my.id/docs/), in the end of the instruction you will get 30 days token using [this request](https://wa.my.id/apidocs/#/signup/signUpNewUser)
 4. Save the token into MongoDB, open iteung db, create a profile collection and insert this JSON document with your 30-day token and your WhatsApp number.  
    ![image](https://github.com/gocroot/alwaysdata/assets/11188109/5b7144c3-3cdb-472b-8ab3-41fe86dad9cb)  
    ![image](https://github.com/gocroot/alwaysdata/assets/11188109/829ae88a-be59-46f2-bddc-93482d0a4999)  
