@@ -3,6 +3,7 @@ package controller
 import (
 	"context"
 	"fmt"
+	"gocroot/config"
 
 	"github.com/aws/aws-lambda-go/events"
 )
@@ -16,6 +17,9 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 		fmt.Printf("    %s: %s\n", key, value)
 	}
 	fmt.Println("apakah ada secret?")
+	if GetSecretFromHeader(request.Headers) == config.WebhookSecret {
+		fmt.Println("terotorisasi, secret valid cuk")
+	}
 	fmt.Println(GetSecretFromHeader(request.Headers))
 	fmt.Println("diatas secretnya cuk")
 	return events.APIGatewayProxyResponse{Body: request.Body, StatusCode: 200}, nil
