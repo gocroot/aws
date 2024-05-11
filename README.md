@@ -1,6 +1,6 @@
-# Golang template for CI/CD in Amazon Web Service
+# Deplong Golang CI/CD to Amazon Web Service
 
-This is a simple Golang Model-Controller template using [AWS Lambda Go](https://github.com/aws/aws-lambda-go/blob/main/events/README_ApiGatewayEvent.md), and mongodb.com as database host. It is compatible with aws lambda CI/CD deployment.
+This is a simple Golang Model-Controller template using [AWS Lambda Go](https://github.com/aws/aws-lambda-go/blob/main/events/README_ApiGatewayEvent.md) and mongodb.com as the database host. It is compatible with AWS Lambda CI/CD deployment.
 
 Start here: Just [Fork this repo](https://github.com/gocroot/aws/)
 
@@ -41,7 +41,7 @@ Sign Up and login into aws console and go to AWS Lambda menu and follow this ins
    WEBHOOKSECRET=yoursecret
    WAPHONENUMBER=62811111
    ```
-4. Go to the menu Identity and Access Management (IAM), set lambda:UpdateFunctionCode Policies, and add to new users.  
+4. Go to the menu Identity and Access Management (IAM), set lambda:UpdateFunctionCode Policies, and add new users.  
    ![image](https://github.com/gocroot/aws/assets/11188109/2d489702-2aec-460b-9fe4-c319d8a6e018)  
 5. Create an access key from the Security credentials tab.  
    ![image](https://github.com/gocroot/aws/assets/11188109/e24f5de5-d46d-435d-b9a6-4c2e452cc914)  
@@ -68,8 +68,8 @@ Sign Up and login into aws console and go to AWS Lambda menu and follow this ins
 
 ## Refresh Whatsapp API Token
 
-To continue using WhatsAuth service, we must get new token every 3 week before token expired in 30 days.
-1. Open Menu Amazon EventBridge> Buses > Rules > Create Rule. Choose like screenshoot.  
+To continue using the WhatsAuth service, we must get a new token every 3 weeks before the token expires in 30 days.
+1. Open Menu Amazon EventBridge> Buses > Rules > Create Rule. Choose like screenshot.  
    ![image](https://github.com/gocroot/aws/assets/11188109/31e170af-c489-493b-bbe4-fd021157f4c8)  
 2. Input for every 20 days; next, choose lambda function then set ENable state.
    ![image](https://github.com/gocroot/aws/assets/11188109/80c0869a-ae55-418c-ab7a-8f0d048bab47)  
