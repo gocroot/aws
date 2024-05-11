@@ -65,7 +65,7 @@ func HandlerIncomingMessage(msg model.IteungMessage, WAPhoneNumber string, db *m
 		if pasetoken != "" {
 			resp, _ = PostStructWithToken[model.Response]("Token", WAAPIToken(WAPhoneNumber, db), dt, WAAPIMessage)
 		} else {
-			resp.Response = "Not Fount Phonenumber " + WAPhoneNumber + " in the profile collection db"
+			resp.Response = "Not Found Phonenumber " + WAPhoneNumber + " in the profile collection db, check phone number env."
 		}
 
 	}
