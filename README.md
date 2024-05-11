@@ -27,8 +27,6 @@ This boilerplate has several folders with different functions, such as:
 
 ## AWS Lambda CI/CD setup
 
-![image](https://github.com/gocroot/alwaysdata/assets/11188109/3ba8a59a-61a3-4018-9aef-40e35ade12b1)  
-
 Sign Up and login into aws console and go to AWS Lambda menu and follow this instruction:
 1. Klik Create Function and input Function name, select Amazon Linux 2023 Runtime, select x86_64 Architecture  
    ![image](https://github.com/gocroot/aws/assets/11188109/d1728555-88ff-41e5-8b05-766e004c0c43)  
