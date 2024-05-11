@@ -61,7 +61,13 @@ func HandlerIncomingMessage(msg model.IteungMessage, WAPhoneNumber string, db *m
 		dt.IsGroup = true
 	}
 	if (msg.Phone_number != "628112000279") && (msg.Phone_number != "6283131895000") { //ignore pesan datang dari iteung
-		resp, _ = PostStructWithToken[model.Response]("Token", WAAPIToken(WAPhoneNumber, db), dt, WAAPIMessage)
+		pasetoken := WAAPIToken(WAPhoneNumber, db)
+		if pasetoken != "" {
+			resp, _ = PostStructWithToken[model.Response]("Token", WAAPIToken(WAPhoneNumber, db), dt, WAAPIMessage)
+		} else {
+			resp.Response = "Not Fount Phonenumber " + WAPhoneNumber + " in the profile collection db"
+		}
+
 	}
 	return
 }
