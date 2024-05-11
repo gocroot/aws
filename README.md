@@ -69,12 +69,14 @@ Sign Up and login into aws console and go to AWS Lambda menu and follow this ins
 ## Refresh Whatsapp API Token
 
 To continue using WhatsAuth service, we must get new token every 3 week before token expired in 30 days.
-1. Open Menu Scheduled tasks> Add scheduled task  
-   ![image](https://github.com/gocroot/alwaysdata/assets/11188109/0cf86344-c0c0-46be-a6e2-dda394dc3e51)  
-2. Select Access to URLs, fill in the value with https://yourappname.alwaysdata.net/whatsauth/refreshtoken also your email address.  
-   ![image](https://github.com/gocroot/alwaysdata/assets/11188109/79017d45-45cf-44f5-9fb2-a6935c5efe10)  
-3. Set Frequency every 3 weeks
-   ![image](https://github.com/gocroot/alwaysdata/assets/11188109/bc041c8c-cdd0-4f6a-bafc-df9330e4a9d4)  
+1. Open Menu Amazon EventBridge> Buses > Rules > Create Rule. Choose like screenshoot.  
+   ![image](https://github.com/gocroot/aws/assets/11188109/31e170af-c489-493b-bbe4-fd021157f4c8)  
+2. Input for every 20 days; next, choose lambda function then set ENable state.
+   ![image](https://github.com/gocroot/aws/assets/11188109/80c0869a-ae55-418c-ab7a-8f0d048bab47)  
+   ![image](https://github.com/gocroot/aws/assets/11188109/11a20d9e-3bfa-436f-9549-0caf3e82f9c8)
+   ![image](https://github.com/gocroot/aws/assets/11188109/828337fc-45cc-42ab-abae-ba5827b99a1d)  
+4. Completing create schedule
+   ![image](https://github.com/gocroot/aws/assets/11188109/94d47bb5-ad5f-46f4-a9a0-d5713ca0b06e)
 
 ## Upgrade Apps
 
