@@ -1,5 +1,9 @@
 # Deplong Golang CI/CD to Amazon Web Service
 
+> **Repo ini sudah tidak dipakai dan diarsipkan.** Gunakan **[GoCroot Core](https://github.com/gocroot/core)**: satu template Go (`net/http`) untuk Google Cloud Run functions, VPS, web hosting, dan Docker. Dokumentasi: **https://gocroot.if.co.id/**
+>
+> **This repository is archived and no longer maintained.** Use **[GoCroot Core](https://github.com/gocroot/core)** instead: one Go template (`net/http`) for Google Cloud Run functions, VPS, web hosting, and Docker. Documentation: **https://gocroot.if.co.id/**
+
 This is a simple Golang Model-Controller template using [AWS Lambda Go](https://github.com/aws/aws-lambda-go/blob/main/events/README_ApiGatewayEvent.md) and mongodb.com as the database host. It is compatible with AWS Lambda CI/CD deployment.
 
 Start here: Just [Fork this repo](https://github.com/gocroot/aws/)
